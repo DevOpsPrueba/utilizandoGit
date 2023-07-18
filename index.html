@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo.css">
+    <link rel="stylesheet" href="boots3/css/bootstrap.css">
+    <title>Proyecto de la materia de Hogar</title>
+    
+</head>
+<body class="container-fluid fondo" onclick="evaluar(event)">
+    <main>
+        <h1>En el siguiente cuadro se le muestran diferentes alimentos, ubiquelos en la casilla correspondiente:</h1>
+        <h2>.</h2>
+        <!-- <div id="resultado"></div> -->
+        <section class="row">
+         <!--   <div class="col-sm-1"></div> col-md-offset-4-->
+
+                <div class="figura" class=" col-sm-4">
+                    <!--ondrop=Especifica que secede cuando se suelta un elemento arrastrado
+                    ondragover=Especifico donde se pueden soltar los datos arrastrados-->
+                    <div class="box fondodiv" id="0" ondrop="drop(event,id)" ondragover="allowDrop(event)"></div>
+                    <h4>Frutas y verduras</h4>
+                </div>
+                <div class="figura" class=" col-sm-4">
+                    <div class="box fondodiv" id="1" ondrop="drop(event,id)" ondragover="allowDrop(event)"></div>
+                    <h4>Azucares</h4>
+                </div>
+                <div class="figura" class=" col-sm-4">
+                    <div class="box fondodiv" id="2" ondrop="drop(event,id)" ondragover="allowDrop(event)"></div>
+                    <h4>Harinas</h4>
+                </div>
+        </section>
+        <section class="row">
+
+                <div class="figura" class=" col-sm-4">
+                    <!--ondrop=Especifica que secede cuando se suelta un elemento arrastrado
+                    ondragover=Especifico donde se pueden soltar los datos arrastrados-->
+                    <div class="box fondodiv" id="3" ondrop="drop(event,id)" ondragover="allowDrop(event)"></div>
+                    <h4>Lactios</h4>
+                </div>
+                <div class="figura" class=" col-sm-4">
+                    <div class="box fondodiv" id="4" ondrop="drop(event,id)" ondragover="allowDrop(event)"></div>
+                    <h4>Proteinas</h4>
+                </div>
+                <div class="figura" class=" col-sm-4">
+                        <div class="box fondodiv" id="5" ondrop="drop(event,id)" ondragover="allowDrop(event)"></div>
+                        <h4>Grasas</h4>
+                    </div>
+            </div>
+        </section>
+        <section  class="row boxF">
+            <!--ondrop=Especifica que secede cuando se suelta un elemento arrastrado
+            ondragover=Especifico donde se pueden soltar los datos arrastrados-->
+            <div class="col-sm-8 " id="6" ondrop="drop(event)" ondragover="allowDrop(event)">
+               <!-- <div class="container"> -->
+                    <img src="Imagenes/grasas y azucares/grasas/mantequilla.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i1">
+                    <img src="Imagenes/Frutas y verduras/Piña.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i2">
+                    <img src="Imagenes/Harinas/serial.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i3">
+                    <img src="Imagenes/grasas y azucares/azucares/3.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i4">                  
+                    <img src="Imagenes/Frutas y verduras/Tomate.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i5">
+                    <img src="Imagenes/grasas y azucares/azucares/1.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i6">
+                    <img src="Imagenes/grasas y azucares/grasas/aceite de cocina.webp" alt="" draggable="true" ondragstart="drag(event)" id="i7">
+                    <img src="Imagenes/Frutas y verduras/zanahoria.png" alt="" draggable="true" ondragstart="drag(event)" id="i8">
+                    <img src="Imagenes/origen animal/lacteos/1.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i9">
+                    <img src="Imagenes/origen animal/proteinas/247471fe33fae7287c52985a5db713a4.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i10">
+                    <img src="Imagenes/Harinas/pan.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i12">
+                    <img src="Imagenes/grasas y azucares/azucares/2.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i13">
+                    <img src="Imagenes/origen animal/lacteos/2.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i14">
+                    <img src="Imagenes/origen animal/proteinas/Pez.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i15">
+                    <img src="Imagenes/origen animal/lacteos/3.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i16">
+                    <img src="Imagenes/origen animal/proteinas/carne.jpg" alt="" draggable="true" ondragstart="drag(event)" id="i11">
+                    <img src="Imagenes/grasas y azucares/grasas/tocino1.png" alt="" draggable="true" ondragstart="drag(event)" id="i17">
+               <!--  </div> -->
+            </div>
+        </section>
+        <script >
+           
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev,idd) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+                evaluar(data,idd);
+            }
+            function evaluar(img,div){
+                //document.querySelector("h1").innerHTML= img + " "+div;
+                if (div == 0) {
+                    if (img=="i2" || img=="i5" || img=="i8") {
+                        document.querySelector("h2").innerHTML= "Correcto!!!";
+                    } else { document.querySelector("h2").innerHTML= "La imagen no corresponde";}
+                } else if (div == 1) {
+                    if (img=="i4" || img=="i6" || img=="i13") {
+                        document.querySelector("h2").innerHTML= "Correcto!!!";
+                    } else {document.querySelector("h2").innerHTML= "La imagen no corresponde";}
+                } else if (div == 2) {
+                    if (img=="i3" || img=="i12" ) {
+                        document.querySelector("h2").innerHTML= "Correcto!!!";
+                    } else {document.querySelector("h2").innerHTML= "La imagen no corresponde";}
+                } else if (div == 3) {
+                    if (img=="i9" || img=="i14" || img=="i16") {
+                        document.querySelector("h2").innerHTML= "Correcto!!!";
+                    } else {document.querySelector("h2").innerHTML= "La imagen no corresponde";}
+                } else if (div == 4) {
+                    if (img=="i10" || img=="i11" || img=="i15") {
+                        document.querySelector("h2").innerHTML= "Correcto!!!";
+                    } else {document.querySelector("h2").innerHTML= "La imagen no corresponde";}
+                } else if (div == 5) {
+                    if (img=="i1" || img=="i7" || img=="i17") {
+                        document.querySelector("h2").innerHTML= "Correcto!!!";
+                    } else
+                        document.querySelector("h2").innerHTML= "La imagen no corresponde";
+                } else
+                        document.querySelector("h2").innerHTML= ".";
+                    
+
+            }
+    </script>
+        
+
+    </main>
+    <!--<script src="script.js"></script> </script>-->
+</body>
+</html>

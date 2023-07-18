@@ -1,0 +1,45 @@
+*{
+    margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.box {
+    width: 290px;
+    height: 120px;
+    border: 1px #03082a solid;
+}
+.boxF {
+    width: 1490px;
+    height: 320px;
+    border: #03082a;
+}
+.figura{
+    border: 3px #03082a solid;
+    display: block; /* presenta el objeto en cuadrado*/
+    padding: 8px; /*margen interno*/
+    float: left; /*se va a hacer a las izq/der del otro*/
+    margin-left: 10px;
+}
+img{
+    width: 90px;
+    height: 90px;
+}
+.fondo{
+    background-color:lavender;
+}
+h1{
+    font-family: "Viner Hand ITC";
+    font-size: 38px;
+    line-height: 26px; /*interlineado*/
+    text-shadow: 3px 3px 4px #8ab8e6
+}
+.fondodiv{
+    background-color: white;
+}
+h2{
+ /*   font-family: "Viner Hand ITC";
+    font-size: 28px;
+    line-height: 26px; /*interlineado*/
+    /*text-shadow: 3px 3px 4px #8ab8e6;*/
+    color: aliceblue;
+}
